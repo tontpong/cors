@@ -36,6 +36,7 @@ export default async function handler(/*req : NextApiRequest , res : NextRespons
 
     const finalUrl = response.url;
     const statusCode = response.status;
+    const location = response.headers['location'];
 
     const headers: { [key: string]: string } = {};
     response.headers.forEach((value, key) => {
@@ -47,9 +48,9 @@ const head = JSON.stringify(headers);
 
     return NextResponse.json({
       finalUrl,
-      status: statusCode,
-      head,
-      body: responseBody,
+      statusCode,
+      location,
+      responseBody,
     },
 {headers: { 'Content-Type': 'application/json' },
      status : 200});
