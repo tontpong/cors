@@ -43,14 +43,15 @@ export default async function handler(req : NextApiRequest , res : NextApiRespon
 
     const responseBody = await response.text();
 
-    res.status(200).json({
+    res.json({
       finalUrl,
       status: statusCode,
       headers,
       body: responseBody,
-    });
+    },
+{status : 200});
   } catch (error) {
 const err = error as Error;
-    res.status(500).json({ error: err.message });
+    res.json({ error: err.message },{status : 500});
   }
 }
