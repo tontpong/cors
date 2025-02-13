@@ -21,7 +21,7 @@ export default async function handler(req: NextRequest) {
 
 /* ============= */
 
-export default async function handler(req : NextApiRequest , res : NextResponse) {
+export default async function handler(/*req : NextApiRequest , res : NextResponse*/) {
   const targetUrl = "https://www.facebook.com/share/p/16AcEsxYQz/";
   const facebookUserAgent =
     "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
@@ -45,7 +45,7 @@ export default async function handler(req : NextApiRequest , res : NextResponse)
 const head = JSON.stringify(headers);
     const responseBody = await response.text();
 
-    res.json({
+    return NextResponse.json({
       finalUrl,
       status: statusCode,
       head,
@@ -55,6 +55,6 @@ const head = JSON.stringify(headers);
      status : 200});
   } catch (error) {
 const err = error as Error;
-    res.json({ error: err.message },{status : 500});
+    return NextResponse.json({ error: err.message },{status : 500});
   }
 }
