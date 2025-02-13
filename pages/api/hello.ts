@@ -62,3 +62,11 @@ const err = error as Error;
     return NextResponse.json({ error: err.message },{status : 500});
   }
 }
+
+/*
+
+https://www.facebook.com/story.php?story_fbid=614201691342900&id=100082592225801&rdid=dUKsJTz0l9zyUhwq&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F17oC1JT
+
+https://www.facebook.com/share/p/17oC1JT9Jf/
+
+*/
