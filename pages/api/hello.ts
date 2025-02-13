@@ -42,15 +42,17 @@ export default async function handler(req : NextApiRequest , res : NextApiRespon
       headers[key] = value;
     });
 
+const head = JSON.stringify(headers);
     const responseBody = await response.text();
 
     NextResponse.json({
       finalUrl,
       status: statusCode,
-      headers,
+      head,
       body: responseBody,
     },
-{status : 200});
+{headers: { 'Content-Type': 'application/json' },
+     status : 200});
   } catch (error) {
 const err = error as Error;
     NextResponse.json({ error: err.message },{status : 500});
