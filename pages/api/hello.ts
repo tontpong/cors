@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { NextResponse } from 'next/server'
 import cors from '../../lib/cors'
 
 export const config = {
@@ -43,7 +44,7 @@ export default async function handler(req : NextApiRequest , res : NextApiRespon
 
     const responseBody = await response.text();
 
-    res.json({
+    NextResponse.json({
       finalUrl,
       status: statusCode,
       headers,
@@ -52,6 +53,6 @@ export default async function handler(req : NextApiRequest , res : NextApiRespon
 {status : 200});
   } catch (error) {
 const err = error as Error;
-    res.json({ error: err.message },{status : 500});
+    NextResponse.json({ error: err.message },{status : 500});
   }
 }
