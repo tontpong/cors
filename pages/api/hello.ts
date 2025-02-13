@@ -38,12 +38,15 @@ export default async function handler(/*req : NextApiRequest , res : NextRespons
     const statusCode = response.status;
     const location = response.headers['location'];
 
+/*
     const headers: { [key: string]: string } = {};
     response.headers.forEach((value, key) => {
       headers[key] = value;
     });
 
 const head = JSON.stringify(headers);
+*/
+
     const responseBody = await response.text();
 
     return NextResponse.json({
