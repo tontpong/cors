@@ -36,7 +36,7 @@ export default async function handler(req : NextRequest , res : NextResponse) {
     const finalUrl = response.url;
     const statusCode = response.status;
 
-    const headers = {};
+    const headers: { [key: string]: string } = {};
     response.headers.forEach((value, key) => {
       headers[key] = value;
     });
