@@ -36,7 +36,7 @@ export default async function handler(/*req : NextApiRequest , res : NextRespons
 
     const finalUrl = response.url;
     const statusCode = response.status;
-    const location = response.headers['location'];
+    const location = response.headers.get('location');
 
 /*
     const headers: { [key: string]: string } = {};
