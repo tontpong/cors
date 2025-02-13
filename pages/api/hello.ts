@@ -50,6 +50,7 @@ export default async function handler(req : NextApiRequest , res : NextApiRespon
       body: responseBody,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+const err = error as Error;
+    res.status(500).json({ error: err.message });
   }
 }
