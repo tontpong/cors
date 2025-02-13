@@ -1,4 +1,4 @@
-import { NextRequest , NextResponse } from 'next/server'
+import { NextApiRequest, NextApiResponse } from 'next'
 import cors from '../../lib/cors'
 
 export const config = {
@@ -20,7 +20,7 @@ export default async function handler(req: NextRequest) {
 
 /* ============= */
 
-export default async function handler(req : NextRequest , res : NextResponse) {
+export default async function handler(req : NextApiRequest , res : NextApiResponse) {
   const targetUrl = "https://www.facebook.com/share/p/16AcEsxYQz/";
   const facebookUserAgent =
     "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)";
